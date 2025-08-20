@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto px-6 py-12">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">À propos de nous</h1>
+  <div class="prose text-gray-700">
+    <p>Nous sommes une entreprise innovante spécialisée dans le digital, la tech et l’humain.</p>
+    <p>Notre culture repose sur la bienveillance, la transparence et l’entraide.</p>
+    <p>Rejoignez une équipe passionnée et en plein développement.</p>
+  </div>
+  <div class="mt-8">
+    <a href="{% url 'job_list' %}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Voir nos offres</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-4xl mx-auto px-6 py-12">
+  <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Politique de confidentialité</h1>
+
+  <div class="prose prose-lg text-gray-700 max-w-none">
+    <p class="text-gray-600 text-lg mb-8 text-center">
+      Dernière mise à jour : 19 août 2025
+    </p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">1. Responsable du traitement</h2>
+    <p>Nous sommes [Nom de votre entreprise], situé(e) à [Adresse], et nous respectons votre vie privée. Nous sommes le responsable du traitement des vos données collectées via ce site de recrutement.</p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">2. Données collectées</h2>
+    <p>Lors de votre candidature, nous collectons les informations suivantes :</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li>Nom complet</li>
+      <li>Adresse email</li>
+      <li>Numéro de téléphone</li>
+      <li>CV (PDF, DOC ou DOCX)</li>
+      <li>Lettre de motivation (si fournie)</li>
+    </ul>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">3. Finalité du traitement</h2>
+    <p>Ces données sont utilisées exclusivement dans le cadre du processus de recrutement pour le poste auquel vous postulez.</p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">4. Durée de conservation</h2>
+    <p>Vos données sont conservées pendant 12 mois à compter de votre candidature. Passé ce délai, elles sont supprimées ou anonymisées, sauf si vous avez donné votre accord pour un suivi à long terme.</p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">5. Vos droits (RGPD)</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li><strong>Droit d’accès</strong> : obtenir confirmation que vos données sont traitées</li>
+      <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+      <li><strong>Droit d’effacement</strong> : demander la suppression de vos données</li>
+      <li><strong>Droit à la limitation</strong> : limiter le traitement de vos données</li>
+      <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+      <li><strong>Droit d’opposition</strong> : vous opposer au traitement de vos données</li>
+    </ul>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">6. Exercer vos droits</h2>
+    <p>Pour exercer vos droits, contactez-nous par email à : <a href="mailto:rgpd@votreentreprise.com" class="text-blue-600 hover:underline">rgpd@votreentreprise.com</a></p>
+    <p>Nous répondrons à votre demande dans un délai d’un mois.</p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">7. Sécurité des données</h2>
+    <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre la perte, l’usage abusif ou l’accès non autorisé.</p>
+
+    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-4">8. Modifications de cette politique</h2>
+    <p>Nous pouvons mettre à jour cette politique de confidentialité. Les modifications seront publiées sur cette page avec une nouvelle date de mise à jour.</p>
+  </div>
+
+  <!-- Boutons de navigation -->
+  <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="{% url 'home' %}"
+       class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition text-center">
+      Retour à l'accueil
+    </a>
+    <a href="{% url 'job_list' %}"
+       class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition text-center">
+      Voir les offres
+    </a>
+  </div>
+</section>
+
+{% endblock %}

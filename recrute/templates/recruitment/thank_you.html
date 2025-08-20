@@ -1,0 +1,38 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-2xl mx-auto px-4 py-16 text-center mt-20">
+  <div class="bg-white p-10 rounded-lg shadow-lg border border-gray-200">
+    
+    <!-- Icône de succès -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+
+    <!-- Titre -->
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Merci pour votre candidature !</h1>
+
+    <!-- Message -->
+    <p class="text-gray-700 mb-6 leading-relaxed">
+      Votre candidature a été envoyée avec succès.  
+      Nous la traiterons dans les meilleurs délais.  
+      Vous recevrez un email de confirmation sous peu.
+    </p>
+
+    <!-- Boutons de navigation -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{% url 'home' %}"
+         class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition shadow-md hover:shadow-lg">
+        Retour à l'accueil
+      </a>
+      <a href="{% url 'job_list' %}"
+         class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition">
+        Voir d'autres offres
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

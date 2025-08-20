@@ -1,0 +1,33 @@
+/* Couleur d'en-tête (barre haute) */
+#header {
+    background: #1dd83c !important; /* Bleu moderne (indigo-800) */
+    background-image: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Couleur des liens dans l'en-tête */
+#branding h1 a,
+#branding h1 a:hover {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Couleur des boutons d'action */
+.module .submit-row input[type="submit"] {
+    background: #1e40af !important; /* Bleu foncé */
+    border: none !important;
+}
+
+.module .submit-row input[type="submit"]:hover {
+    background: #1e3a8a !important;
+}
+
+/* Couleur des liens dans le menu latéral */
+#sidebar a {
+    color: #1d4ed8 !important;
+}
+
+#sidebar a:hover {
+    color: #1e3a8a !important;
+    background: #dbeafe !important;
+}

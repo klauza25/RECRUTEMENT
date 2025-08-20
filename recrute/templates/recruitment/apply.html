@@ -1,0 +1,109 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-2xl mx-auto px-4 py-12">
+  <!-- Lien de retour -->
+  <a href="{% url 'job_detail' poste.pk %}" class="inline-block mb-6 text-blue-600 hover:underline transition">
+    &larr; Retour au poste
+  </a>
+
+  <!-- Fiche du poste -->
+  <div class="bg-gray-100 p-4 rounded-lg mb-6">
+    <h2 class="text-xl font-semibold text-gray-900">{{ poste.titre }}</h2>
+    <p class="text-gray-600">{{ poste.localisation }} • {{ poste.get_type_contrat_display }}</p>
+  </div>
+
+  <!-- Titre du formulaire -->
+  <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+    <h1 class="text-2xl font-bold text-gray-900 mb-2">Postuler à ce poste</h1>
+    <p class="text-gray-600 mb-6">Remplissez le formulaire ci-dessous pour envoyer votre candidature.</p>
+
+    <!-- Messages flash -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="p-3 mb-4 text-sm rounded-lg 
+          {% if message.tags == 'error' %}bg-red-100 text-red-700
+          {% else %}bg-green-100 text-green-700{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- Formulaire -->
+    <form method="post" enctype="multipart/form-data" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Nom complet -->
+      <div>
+        <label for="{{ form.nom_complet.id_for_label }}" class="block text-sm font-medium text-gray-700">
+          Nom complet *
+        </label>
+        {{ form.nom_complet }}
+        {% if form.nom_complet.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ form.nom_complet.errors }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700">
+          Email *
+        </label>
+        {{ form.email }}
+        {% if form.email.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ form.email.errors }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Téléphone -->
+      <div>
+        <label for="{{ form.telephone.id_for_label }}" class="block text-sm font-medium text-gray-700">
+          Téléphone
+        </label>
+        {{ form.telephone }}
+        {% if form.telephone.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ form.telephone.errors }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Lettre de motivation -->
+      <div>
+        <label for="{{ form.lettre_motivation.id_for_label }}" class="block text-sm font-medium text-gray-700">
+          Lettre de motivation
+        </label>
+        {{ form.lettre_motivation }}
+        {% if form.lettre_motivation.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ form.lettre_motivation.errors }}</p>
+        {% endif %}
+      </div>
+
+      <!-- CV -->
+      <div>
+        <label for="{{ form.cv.id_for_label }}" class="block text-sm font-medium text-gray-700">
+          CV (PDF, DOC ou DOCX) *
+        </label>
+        {{ form.cv }}
+        {% if form.cv.errors %}
+          <p class="mt-1 text-sm text-red-600">{{ form.cv.errors }}</p>
+        {% endif %}
+        <p class="mt-1 text-xs text-gray-500">Taille maximale : 10 Mo</p>
+      </div>
+
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition shadow focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Envoyer ma candidature
+        </button>
+        <a href="{% url 'job_detail' poste.pk %}"
+           class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition text-center">
+          Annuler
+        </a>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

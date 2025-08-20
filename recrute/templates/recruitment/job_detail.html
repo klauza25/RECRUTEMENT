@@ -1,0 +1,49 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="max-w-4xl mx-auto px-4 py-10">
+  <a href="{% url 'job_list' %}" class="inline-block mb-6 text-blue-600 hover:underline">&larr; Retour aux offres</a>
+
+  <article class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+    <div class="p-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ poste.titre }}</h1>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-6">
+        <span class="flex items-center">
+          📍 <span class="ml-1">{{ poste.localisation }}</span>
+        </span>
+        <span class="flex items-center">
+          📄 <span class="ml-1">{{ poste.get_type_contrat_display }}</span>
+        </span>
+        {% if poste.categorie %}
+          <span class="flex items-center">
+            🔖 <span class="ml-1">{{ poste.categorie }}</span>
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="prose max-w-none mb-8 text-gray-700">
+        <h2 class="text-xl font-semibold text-gray-800 mb-3">Description du poste</h2>
+        <p>{{ poste.description|linebreaks }}</p>
+
+        <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Profil recherché</h2>
+        <p>{{ poste.profil_recherche|linebreaks }}</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="{% url 'apply_job' poste.pk %}"
+           class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-medium transition shadow">
+          📝 Postuler à ce poste
+        </a>
+        <a href="{% url 'job_list' %}"
+           class="flex-1 text-center py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition">
+          Voir d'autres offres
+        </a>
+      </div>
+    </div>
+  </article>
+</section>
+
+{% endblock %}
